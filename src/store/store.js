@@ -49,4 +49,9 @@ export default class Store {
         }
     }
 
+    async logout() {
+        localStorage.removeItem('token');
+        this.setAuth(false);
+    }
+ 
 }
