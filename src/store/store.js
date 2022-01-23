@@ -42,10 +42,16 @@ export default class Store {
         }
     }
 
-    async checkAuth() {
-        const token = localStorage.getItem('token');
-        if(token) {
-            this.setAuth(true);
+    async checkAuth(token) {
+        try {
+            const response = await AuthService.checkUser(token);
+            const user = response.data;
+            if (user) {
+                this.setUser(user);
+                this.setAuth(true);
+            }
+        } catch(err) {
+            return err;
         }
     }
 
@@ -53,5 +59,6 @@ export default class Store {
         localStorage.removeItem('token');
         this.setAuth(false);
     }
+    
  
 }

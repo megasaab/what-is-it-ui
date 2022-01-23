@@ -10,5 +10,9 @@ export default class AuthService {
     static async registration(email, password, firstName, lastName) {
         return axios.post(`${BASE_API_URL}/auth/register`, { email, password, firstName, lastName });
     };
+
+    static async checkUser(token) {
+        return axios.post(`${BASE_API_URL}/auth/check`, { token });
+    }
    
 };

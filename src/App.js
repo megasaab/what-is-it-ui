@@ -3,13 +3,17 @@ import { observer } from 'mobx-react';
 import { Context } from ".";
 import { useEffect, useContext } from 'react';
 import Main from './components/Main';
+import { toJS } from 'mobx';
 
 function App() {
   const { store } = useContext(Context);
 
   useEffect(() => {
-    if (localStorage.getItem('token')) {
-        store.checkAuth();
+
+    const token  = localStorage.getItem('token');
+
+    if (token) {
+        store.checkAuth(token);
     }
   }, []);
 
