@@ -27,6 +27,7 @@ const Login = () => {
         console.log(response);
     }
 
+
     if (!isRegistration) {
         return (
             <Grid>
@@ -42,16 +43,6 @@ const Login = () => {
                         <TextField label='password' placeholder='enter password' type="password" fullWidth required
                         style={textFieldStyle}
                             onChange={(el) => setPassword(el?.target?.value)}
-                        />
-                        <FormControlLabel
-                            control={
-
-                                <Checkbox
-                                    name='checkedB'
-                                    color='primary'
-                                />
-                            }
-                            label="remember me"
                         />
                     </Grid>
                     <Button type="button" color="primary" variant="contained" fullWidth style={btnStyle}
